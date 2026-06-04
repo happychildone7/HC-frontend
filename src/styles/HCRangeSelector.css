@@ -1,0 +1,75 @@
+/* outer box */
+.fee-range {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #d1d5db;      /* light grey, matches other filters */
+    border-radius: 8px;
+    padding: 10px 16px;
+    background: #ffffff;
+  }
+  
+  /* grey label */
+  .fee-range__label {
+    font-size: 14px;
+    color: black;
+    flex-shrink: 0;
+  }
+  
+  /* numeric value at the end */
+  .fee-range__value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e40af;                /* blue */
+    flex-shrink: 0;
+  }
+  
+  /* ------- Slider Styling (cross-browser) ------- */
+  
+  .fee-range__slider {
+    -webkit-appearance: none;
+    width: 120px;                  /* adjust width as needed */
+    height: 2px;
+    background: #d1d5db;           /* track colour */
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+    flex-grow: 1;
+  }
+  
+  /* WebKit thumb */
+  .fee-range__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #2563eb;           /* blue thumb */
+    border: none;
+    margin-top: -1px;              /* centers thumb vertically */
+  }
+  
+  /* Firefox thumb */
+  .fee-range__slider::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: none;
+  }
+  
+  /* filled track before thumb (Chrome/Safari) */
+  .fee-range__slider::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      #2563eb 0%,
+      #2563eb calc(var(--percent) * 1%),
+      #d1d5db calc(var(--percent) * 1%),
+      #d1d5db 100%
+    );
+  }
+  
+  /* Update CSS variable for the gradient */
+  .fee-range__slider {
+    --percent: 0; /* will be set inline in JS via style prop if desired */
+  }
+  

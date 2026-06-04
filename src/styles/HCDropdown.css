@@ -1,0 +1,70 @@
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .required::after {
+    content: " *";
+    color: red;
+  }
+  
+  .custom-combobox-label {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  
+  .dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .75rem;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+  }
+  
+  .button-open {
+    border: rgb(147 197 253) 2px solid;
+  }
+  
+  .toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    max-height: 40vh;
+    overflow-y: auto;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .dropdown-content.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  
+  .dropdown-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  

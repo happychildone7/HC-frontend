@@ -1,0 +1,19 @@
+.hc-filter-bar{
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    gap: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #eaeaea;
+}
+.hc-filter-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333333;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,134 @@
+.cls_header{
+    padding-top: calc(var(--primary-nav-height) + 32px);
+}
+.cls_crd_wrp_adsc{
+    padding: 40px 100px 52px;
+    background: linear-gradient(135deg, #f3f4f6 0%, #a1a2a4 100%);
+}
+.cls_crd_cnt_adsc{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 28px 32px 32px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+.cls_crd_hdr_adsc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.cls_crd_hdr_adsc h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+.cls_crd_hdr_adsc p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+.cls_crd_hdr_btn_wrp_adsc{
+  display: flex;
+  gap: 5px;
+}
+.hc-admin-table-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px 20px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.hc-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.hc-admin-table thead tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.hc-admin-table th,
+.hc-admin-table td {
+  padding: 10px 8px;
+  text-align: left;
+}
+
+.hc-admin-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.hc-admin-table tbody tr:nth-child(every) {
+  background-color: transparent;
+}
+
+.hc-admin-table tbody tr:nth-child(odd) {
+  background-color: #f9fafb;
+}
+
+.hc-admin-table tbody tr:hover {
+  background-color: #e5f0ff;
+}
+
+.hc-col-actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hc-btn-ghost {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2563eb;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.hc-btn-ghost + .hc-btn-ghost {
+  margin-left: 4px;
+}
+
+.hc-btn-danger {
+  color: #dc2626;
+}
+
+/* Status badges */
+.hc-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hc-status-approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.hc-status-pending {
+  background: #fef9c3;
+  color: #a16207;
+}
+
+.hc-status-rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.hc-table-empty {
+  padding: 24px 8px;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+}

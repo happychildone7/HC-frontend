@@ -1,0 +1,79 @@
+.cls_amenities_sctn {
+  background: white;
+  padding: 1rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.cls_amenities_stats {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cls_stat_card {
+  background: linear-gradient(135deg, #8f9190, #4f5050);
+  color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cls_stat_number {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cls_stat_label {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.cls_amenities_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.cls_amenity_item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.cls_amenity_icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background: white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.cls_amenity_name {
+  flex: 1;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cls_amenity_status {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+}
+
+.cls_icn_asc{
+  width: 20px;
+  height: 20px;
+}

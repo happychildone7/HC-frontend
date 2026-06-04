@@ -1,0 +1,40 @@
+.cls_crop_wrapper{
+    width:100%;
+}
+
+.cls_crop_container{
+    position:relative;
+    width:100%;
+    height:350px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.cls_crop_controls{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+}
+
+.cls_crop_actions{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+.cls_crop_loader{
+    width:14px;
+    height:14px;
+    border:2px solid #ccc;
+    border-top-color:#333;
+    border-radius:50%;
+    display:inline-block;
+    animation:spin .7s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}

@@ -1,0 +1,44 @@
+.linkBox{
+    display: flex;
+    gap: 10px;
+}
+.iconclsSL_FB{
+    height: 25px;
+    width: 25px;
+}
+.iconclsSL_FB:hover{
+    background: #1764ac;
+    transform: scale(1);
+}
+.iconclsSL_IG{
+    height: 25px;
+    width: 25px;
+}
+.iconclsSL_IG:hover{
+    background: #86216b;
+    transform: scale(1);
+}
+.iconclsSL_LN{
+    height: 25px;
+    width: 25px;
+}
+.iconclsSL_LN:hover{
+    background: #1764ac;
+    transform: scale(1);
+}
+.iconclsSL_X{
+    height: 25px;
+    width: 25px;
+}
+.iconclsSL_X:hover{
+    background: #141414;
+    transform: scale(1);
+}
+.iconclsSL_YT{
+    height: 25px;
+    width: 25px;
+}
+.iconclsSL_YT:hover{
+    background: red;
+    transform: scale(1);
+}

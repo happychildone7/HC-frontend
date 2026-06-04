@@ -1,0 +1,113 @@
+.cls_prnt_locmod {
+    display: flex;
+    flex-direction: column;
+}
+.cls_modal_content_locmod {
+    background: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    max-width: 720px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+.search-container_locmod {
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    flex-grow: .2;
+}
+.search-icon_locmod {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #888;
+} 
+.search-input_locmod {
+    width: 85%;
+    padding: 8px 12px 8px 32px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.search-input_locmod:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(221, 107, 122, 0.1);
+    border-color: #dd6b7a;
+}
+.cls_radaricon_locmod {
+    width: 15px;
+    height: 15px;
+    filter: brightness(0) saturate(100%) invert(46%) sepia(86%) 
+            saturate(1474%) hue-rotate(330deg) brightness(93%) 
+            contrast(101%);
+}
+.cls_dtct_locmod {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #dd6b7a;
+    font-size: .9rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0px 30px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.cls_dtct_locmod:hover {
+    background: rgba(221, 107, 122, 0.08);
+    transform: translateY(-1px);
+}
+.cls_fullWidth_locmod {
+    height: 1px;
+    background: #e5e5e5;
+    width: 100%; 
+    margin-bottom: 10px;                    
+}
+.cls_cities_cnt_locmod {
+    display: flex;
+    padding: 0px 30px;
+    flex-direction: column;
+}
+.cls_city_prnt_locmod {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 8%;
+}
+.cls_city_cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.cls_cityIcon_locmod {
+    width: 50px;
+    height: 50px;
+}
+.cls_viewall_locmod {
+    margin-top: 15px;
+    color: #dd6b7a;
+    cursor: pointer;
+}
+.cls_allcity_cnt {
+    display: flex;
+    gap: 10px;
+}
+.cls_txthover {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: rgb(77, 76, 76);
+    cursor: pointer;
+}
+.cls_txthover:hover {
+    color: rgb(0, 0, 0);
+}

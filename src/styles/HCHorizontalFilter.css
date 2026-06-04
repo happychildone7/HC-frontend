@@ -1,0 +1,42 @@
+/* outer container */
+.type-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #d1d5db;   /* light border like your other boxes */
+    border-radius: 7px;
+    padding: 4px 32px 4px;
+    background: #ffffff;
+  }
+  
+  /* grey “Type” text */
+  .type-filter__label {
+    font-size: 14px;
+    color: black;              /* muted grey */
+    flex-shrink: 0;
+    width: 80px;
+  }
+  
+  /* individual pills */
+  .type-filter__pill {
+    background: transparent;
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 16px;
+    color: #111827;              /* primary text */
+    transition: background 0.15s;
+  }
+  
+  .type-filter__pill:hover {
+    background: #f3f4f6;         /* light hover */
+  }
+  
+  /* active / selected pill */
+  .type-filter__pill.is-active {
+    background: #2563eb15;       /* very light blue */
+    color: #2563eb;              /* blue text */
+    font-weight: 600;
+  }
+  

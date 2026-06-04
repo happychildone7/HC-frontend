@@ -1,0 +1,157 @@
+.bghome{
+    background-image: url(../images/home.WebP);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    padding-top: 18%;
+    padding-bottom: 5%;
+}
+.text-heading-small{
+    color: hsla(0, 0%, 100%, 1);
+    font-family: sans-serif;
+    font-size: large;
+}
+.text-heading-large{
+    color: hsla(0, 0%, 100%, 1);
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: -webkit-xxx-large;
+}
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+.buttonBookAppt{
+    cursor: pointer;
+    background: #dd6b7a;
+    border: none;
+    outline: none;
+    color: #FFF;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+}
+/* .buttonlearn{
+    cursor: pointer;
+    background: transparent;
+    color: #f9f4f9;
+    border-color: #f9f3f9;
+    outline: none;
+    border-radius: 12px;
+} */
+.buttonBookAppt::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #dd6b7a;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+  /* glow */
+  .buttonBookAppt::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #FF0000, #FF7300, #FFFB00, #48FF00,
+      #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+  }
+  
+  @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+  }
+  
+  /* hover */
+  .buttonBookAppt:hover::before {
+    opacity: 1;
+  }
+  
+  .buttonBookAppt:active:after {
+    background: transparent;
+  }
+  
+  .buttonBookAppt:active {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .buttonlearn{
+    cursor: pointer;
+    background: transparent;
+    position: relative;
+    color: #FFF;
+    outline: none;
+    font-weight: bold;
+    transition: .5s;
+    overflow: hidden;
+    border-radius: 12px;
+    border-color: #f9f3f9;
+  }
+  .buttonlearn:hover{
+    background-color: #03e9f4;
+    color: #FFF;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+  
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  }
+  .buttonlearn span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: animate1 1s infinite;
+  }
+  .buttonBookApptv1{
+    cursor: pointer;
+    background: #dbd755;
+    position: relative;
+    color: #FFF;
+    outline: none;
+    font-weight: bold;
+    transition: .5s;
+    overflow: hidden;
+    border-radius: 12px;
+    border-color: #f9f3f9;
+  }
+  .buttonBookApptv1:hover{
+    background-color: #dbd755;
+    color: #FFF;
+    box-shadow: 0 0 5px #dbd755,
+                0 0 25px #dbd755,
+                0 0 50px #dbd755,
+                0 0 200px #dbd755;
+  
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  }
+  .buttonBookApptv1 span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #dbd755);
+    animation: animate1 1s infinite;
+  }
