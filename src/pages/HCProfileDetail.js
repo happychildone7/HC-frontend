@@ -63,6 +63,7 @@ const HCProfileDetail = () => {
 
                 const resp = await fetch(`${API_BASE}/api/contact/${user.contactId}`, {
                     method: "GET",
+                    credentials: "include",
                     headers: {
                         "Content-Type": "application/json"
                     }
