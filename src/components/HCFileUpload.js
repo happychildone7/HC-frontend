@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import '../styles/HCFileUpload.css';
 import ic_upload from '../images/upload.WebP';
 import Button from "../components/HCButton";
-
 import DustbinIcon from "../svgIcons/dustbinIcon";
 import HCImageCropper from "./HCImageCropper";
+import { API_BASE } from "../utils/config";
 
 const HCFileUpload = ({ savedImages,onUploadComplete, maxFiles, cls_upload_cnt="cls_upload_cnt", profileMode = false, onShowCropper, saving=false }) => {
     const [images,setImages] = useState(savedImages || []);
@@ -43,7 +43,7 @@ const HCFileUpload = ({ savedImages,onUploadComplete, maxFiles, cls_upload_cnt="
                 formData.append('images', file);
             });
 
-            const resp = await fetch('/api/fileUpload/upload', {
+            const resp = await fetch(`${API_BASE}/api/fileUpload/upload`, {
                 method: 'POST',
                 body: formData,
                 header: {
@@ -86,7 +86,7 @@ const HCFileUpload = ({ savedImages,onUploadComplete, maxFiles, cls_upload_cnt="
         onUploadComplete(updatedImages);
         console.log('checkkimg123>>'+JSON.stringify({ publicIds: [imageToDelete.id] }));
         try{
-            await fetch('/api/fileUpload/cleanUp', {
+            await fetch(`${API_BASE}/api/fileUpload/cleanUp`, {
                 method: 'POST',
                 body: JSON.stringify({ publicIds: [imageToDelete.id] }),
                 headers: {
@@ -124,7 +124,7 @@ const HCFileUpload = ({ savedImages,onUploadComplete, maxFiles, cls_upload_cnt="
             const payload = JSON.stringify({
                     publicIds: images.map(img => img.id)
                 });
-            navigator.sendBeacon('/api/fileUpload/cleanUp', new Blob([payload], { type: 'application/json' }));
+            navigator.sendBeacon(`${API_BASE}/api/fileUpload/cleanUp`, new Blob([payload], { type: 'application/json' }));
         };
         window.addEventListener('beforeunload', handleBeforeUnload);
         return () => {
@@ -133,7 +133,7 @@ const HCFileUpload = ({ savedImages,onUploadComplete, maxFiles, cls_upload_cnt="
                 const payload = JSON.stringify({
                     publicIds: images.map(img => img.id)
                 });
-                navigator.sendBeacon('/api/fileUpload/cleanUp', new Blob([payload], { type: 'application/json' }));
+                navigator.sendBeacon(`${API_BASE}/api/fileUpload/cleanUp`, new Blob([payload], { type: 'application/json' }));
             } */
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };

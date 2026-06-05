@@ -12,6 +12,7 @@ import ic_arrowdown from '../images/arrowdown.WebP';
 import HCImageDetail from "../common/HCImageDetail";
 import ic_check from '../images/check.WebP';
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminViewEvent = () => {
     const { id } = useParams();
@@ -64,7 +65,7 @@ const HCAdminViewEvent = () => {
     useEffect(() => {
         const fetchRecord = async () => {
             try{
-                const resp = await fetch(`/api/event/${id}`, {
+                const resp = await fetch(`${API_BASE}/api/event/${id}`, {
                     method: 'GET'
                 });
                 const json = await resp.json();
@@ -237,7 +238,7 @@ const HCAdminViewEvent = () => {
         setIsDataLoading(true);
         const form_data_location = { line1__c,line2__c,location_Type__c,city__c,state__c,country__c,pin__c,coordinates__c };
         try{
-            const locResp = await fetch(`/api/location/${location__Id__c}`,{
+            const locResp = await fetch(`${API_BASE}/api/location/${location__Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data_location),
                 headers: {
@@ -258,7 +259,7 @@ const HCAdminViewEvent = () => {
                                         age_Group__c,format__c,amenities__c,school__c,capacity__c,registered_Count__c,
                                         active__c,status__c,location__c 
                                     };
-            const eventResp = await fetch(`/api/event/${event_Id__c}`,{
+            const eventResp = await fetch(`${API_BASE}/api/event/${event_Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data_event),
                 headers: {
@@ -273,7 +274,7 @@ const HCAdminViewEvent = () => {
             }
             console.log('Event udpated',eventJson);
             if(imgChanged){
-                await fetch('/api/content/deleteByRelated',{
+                await fetch(`${API_BASE}/api/content/deleteByRelated`,{
                     method: 'POST',
                     body: JSON.stringify({
                         relatedToIds : [event_Id__c]
@@ -302,7 +303,7 @@ const HCAdminViewEvent = () => {
                     }));
                     await Promise.all(
                         contentPayloads.map(async (payload) => {
-                            const contentResp = await fetch('/api/content/',{
+                            const contentResp = await fetch(`${API_BASE}/api/content/`,{
                                 method: 'POST',
                                 body: JSON.stringify(payload),
                                 headers: {

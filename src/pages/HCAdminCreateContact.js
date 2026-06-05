@@ -10,6 +10,7 @@ import HCContactDetail from "../common/HCContactDetail";
 import HCLocationDetail from '../common/HCLocationDetail';
 import HCImageDetail from "../common/HCImageDetail";
 import { isEmailValid, isPhoneValid } from '../utils/validations.js';
+import { API_BASE } from "../utils/config.js";
 
 const HCAdminCreateContact = () => {
     const [isFormVisible,setIsFormVisible] = useState(true);
@@ -101,7 +102,7 @@ const HCAdminCreateContact = () => {
                             gender__c,date_Of_Birth__,active__c 
                         };
         try{
-            const resp = await fetch('/api/contact/', {
+            const resp = await fetch(`${API_BASE}/api/contact/`, {
                 method: 'POST',
                 body: JSON.stringify(form_data),
                 headers: {
@@ -135,7 +136,7 @@ const HCAdminCreateContact = () => {
                     await Promise.all(
                         contentPayloads.map(async (payload) => {
                             console.log('Form data content>'+JSON.stringify(payload));
-                            const resp = await fetch('/api/content/', {
+                            const resp = await fetch(`${API_BASE}/api/content/`, {
                                 method: 'POST',
                                 body: JSON.stringify(payload),
                                 headers: {
@@ -168,7 +169,7 @@ const HCAdminCreateContact = () => {
         e.preventDefault();
         handleRefresh();
         if(formImgData?.images.length > 0){
-            await fetch('api/fileUpload/cleanUp', {
+            await fetch(`${API_BASE}api/fileUpload/cleanUp`, {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

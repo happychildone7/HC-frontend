@@ -4,6 +4,7 @@ import Button from '../components/HCButton';
 import DataTable from '../components/HCDatatable';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminContact = () => {
     const [contacts,setContacts] = useState([]);
@@ -64,7 +65,7 @@ const HCAdminContact = () => {
     useEffect(() => {
         const fetchContacts = async () => {
             try{
-                const resp = await fetch('/api/contact/', {
+                const resp = await fetch(`${API_BASE}/api/contact/`, {
                     method: 'GET'
                 });
                 const data = await resp.json();
@@ -98,7 +99,7 @@ const HCAdminContact = () => {
         const ids = draftRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/contact/bulkActivate',{
+            const resp = await fetch(`${API_BASE}/api/contact/bulkActivate`,{
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {
@@ -138,7 +139,7 @@ const HCAdminContact = () => {
         const ids = selectedRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/contact/deleteMany', {
+            const resp = await fetch(`${API_BASE}/api/contact/deleteMany`, {
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {

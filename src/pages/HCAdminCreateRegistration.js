@@ -7,6 +7,7 @@ import ic_arrowup from '../images/arrowup.WebP';
 import ic_arrowdown from '../images/arrowdown.WebP';
 import HCSpinner from '../components/HCSpinner';
 import HCRegistrationDetail from "../common/HCRegistrationDetail";
+import { API_BASE } from "../utils/config";
 
 const HCAdminCreateRegistration = () => {
     const [isFormVisible,setIsFormVisible] = useState(true);
@@ -93,7 +94,7 @@ const HCAdminCreateRegistration = () => {
         const form_data = { contact__c,event__c,status__c,attendance_Status__c,payment_Status__c,seat_Count__c,
             notes__c,consent__c,waitlist_Position__c };
         try{
-            const resp = await fetch('/api/registration/', {
+            const resp = await fetch(`${API_BASE}/api/registration/`, {
                 method: 'POST',
                 body: JSON.stringify(form_data),
                 headers: {

@@ -18,6 +18,7 @@ import HCGoogleSignin from "../components/HCGoogleSignin.js";
 import HCFacebookSignin from "../components/HCFacebookSignin.js";
 import { useAuth } from "../auth/useAuth";
 import { Link,Navigate, useNavigate } from "react-router-dom";
+import { API_BASE } from "../utils/config.js";
 
 const HCSignIn = ({ showModal,onClose,onLogin,onUserLogin }) => {
     const [showSignInHome,setShowSignInHome] = useState(true);
@@ -134,7 +135,7 @@ const HCSignIn = ({ showModal,onClose,onLogin,onUserLogin }) => {
         console.log('FROM_DATA>',JSON.stringify(form_data));
         try{
             setSignUpSpinner(true);
-            const resp = await fetch('/api/signup/register', {
+            const resp = await fetch(`${API_BASE}/api/signup/register`, {
                 method: 'POST',
                 body: JSON.stringify(form_data),
                 headers: {
@@ -185,7 +186,7 @@ const HCSignIn = ({ showModal,onClose,onLogin,onUserLogin }) => {
         const form_data = { email__c,enteredOtp }
         try{
             setIsOtpVerifying(true);
-            const resp = await fetch('/api/signup/verifyUser', {
+            const resp = await fetch(`${API_BASE}/api/signup/verifyUser`, {
                 method: 'POST',
                 body: JSON.stringify(form_data),
                 headers: {

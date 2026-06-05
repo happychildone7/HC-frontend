@@ -12,6 +12,7 @@ import ic_arrowdown from '../images/arrowdown.WebP';
 import HCImageDetail from "../common/HCImageDetail";
 import ic_check from '../images/check.WebP';
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminViewSchool = () => {
     const { id } = useParams();
@@ -61,7 +62,7 @@ const HCAdminViewSchool = () => {
     useEffect(() => {
         const fetchRecord = async () => {
             try{
-                const resp = await fetch(`/api/school/${id}`, {
+                const resp = await fetch(`${API_BASE}/api/school/${id}`, {
                     method: 'GET'
                 });
                 const json = await resp.json();
@@ -221,7 +222,7 @@ const HCAdminViewSchool = () => {
         const form_data_location = { line1__c,line2__c,location_Type__c,city__c,state__c,country__c,pin__c,coordinates__c };
         try{
             let method = location__Id__c ? 'PATCH' : 'POST';
-            let url = location__Id__c ? `/api/location/${location__Id__c}` : '/api/location';
+            let url = location__Id__c ? `${API_BASE}/api/location/${location__Id__c}` : `${API_BASE}/api/location`;
             const locResp = await fetch(url,{
                 method: method,
                 body: JSON.stringify(form_data_location),
@@ -241,7 +242,7 @@ const HCAdminViewSchool = () => {
             const form_data_school = { Name__c,description__c,location__c,board__c,ownership_Type__c,type__c,fee_Monthly_Min__c,co_Ed_Status__c,
                             medium_Instruction__c,classes__c,age_Criteria_Min__c,age_Criteria_Max__c,facilities__c,
                             admission_Status__c };
-            const schoolResp = await fetch(`/api/school/${school_Id__c}`,{
+            const schoolResp = await fetch(`${API_BASE}/api/school/${school_Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data_school),
                 headers: {
@@ -256,7 +257,7 @@ const HCAdminViewSchool = () => {
             }
             console.log('School udpated',schoolJson);
             if(imgChanged){
-                await fetch('/api/content/deleteByRelated',{
+                await fetch(`${API_BASE}/api/content/deleteByRelated`,{
                     method: 'POST',
                     body: JSON.stringify({
                         relatedToIds : [school_Id__c]
@@ -285,7 +286,7 @@ const HCAdminViewSchool = () => {
                     }));
                     await Promise.all(
                         contentPayloads.map(async (payload) => {
-                            const contentResp = await fetch('/api/content/',{
+                            const contentResp = await fetch(`${API_BASE}/api/content/`,{
                                 method: 'POST',
                                 body: JSON.stringify(payload),
                                 headers: {

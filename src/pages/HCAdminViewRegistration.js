@@ -9,6 +9,7 @@ import HCSpinner from '../components/HCSpinner';
 import ic_arrowup from '../images/arrowup.WebP';
 import ic_arrowdown from '../images/arrowdown.WebP';
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminViewRegistration = () => {
     const { id } = useParams();
@@ -39,7 +40,7 @@ const HCAdminViewRegistration = () => {
     useEffect(() => {
         const fetchRecord = async () => {
             try{
-                const resp = await fetch(`/api/registration/${id}`, {
+                const resp = await fetch(`${API_BASE}/api/registration/${id}`, {
                     method: 'GET'
                 });
                 const json = await resp.json();
@@ -138,7 +139,7 @@ const HCAdminViewRegistration = () => {
                             registered_On__c,waitlist_Position__c 
                           };
         try{
-            const regResp = await fetch(`/api/registration/${registration_Id__c}`,{
+            const regResp = await fetch(`${API_BASE}/api/registration/${registration_Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data),
                 headers: {

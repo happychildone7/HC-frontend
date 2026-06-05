@@ -5,6 +5,7 @@ import DropdownItem from "../components/HCDropdownItem";
 import MapPicker from '../components/HCMapPicker';
 import ic_edit from '../images/edit.WebP';
 import '../styles/HCAdminCommon.css';
+import { API_BASE } from "../utils/config";
 
 const HCSchoolDetail = ({ formData,onFieldChange,onArrayChange,errors={},mode='view',onEditClick }) => {
     const [countries,setCountries] = useState([]);
@@ -63,7 +64,7 @@ const HCSchoolDetail = ({ formData,onFieldChange,onArrayChange,errors={},mode='v
 
     const fetchCountries = async(e) => {
         try{
-            const resp = await fetch('/api/country/', {
+            const resp = await fetch(`${API_BASE}/api/country/`, {
                 method: 'GET',
                 headers: {
                     'content-type' : 'application/json'
@@ -83,7 +84,7 @@ const HCSchoolDetail = ({ formData,onFieldChange,onArrayChange,errors={},mode='v
     const fetchStates = async(e) => {
         try{
             if(!countryId__c) return;
-            const resp = await fetch(`/api/state/fetch/?country__c=${countryId__c}`, {
+            const resp = await fetch(`${API_BASE}/api/state/fetch/?country__c=${countryId__c}`, {
                 method: 'GET', 
                 headers: {
                     'content-type' : 'application/json'
@@ -103,7 +104,7 @@ const HCSchoolDetail = ({ formData,onFieldChange,onArrayChange,errors={},mode='v
     const fetchCities = async(e) => {
         try{
             if(!stateId__c) return;
-            const resp = await fetch(`/api/city/fetch/?state__c=${stateId__c}`, {
+            const resp = await fetch(`${API_BASE}/api/city/fetch/?state__c=${stateId__c}`, {
                 method: 'GET', 
                 headers: {
                     'content-type' : 'application/json'

@@ -26,6 +26,7 @@ import HCRSVPModal from "../common/HCRSVPModal";
 import { createWishlist } from "../utils/services";
 import { useAuth } from "../auth/useAuth";
 import { toast } from "react-toastify";
+import { API_BASE } from "../utils/config";
 
 const HCEventDetailPage = () => {
     const { id } = useParams();
@@ -88,7 +89,7 @@ const HCEventDetailPage = () => {
         const fetchEvent = async () => {
             try {
                 setLoading(true);
-                const resp = await fetch(`/api/event/${id}`);
+                const resp = await fetch(`${API_BASE}/api/event/${id}`);
                 const data = await resp.json();
                 console.log('dt>>',data);
                 setEvent(data);

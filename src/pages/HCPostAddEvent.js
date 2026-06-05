@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import HCEventDetail from "../common/HCEventDetail";
 import HCLocationDetail from '../common/HCLocationDetail';
 import HCImageDetail from "../common/HCImageDetail";
+import { API_BASE } from "../utils/config";
 
 const HCPostAddEvent = ({ onCancel,showStatus }) => {
     const [isFormVisible,setIsFormVisible] = useState(true);
@@ -151,7 +152,7 @@ const HCPostAddEvent = ({ onCancel,showStatus }) => {
         setIsDataLoading(true);
         const form_data_location = { line1__c,line2__c,location_Type__c,city__c,state__c,country__c,pin__c,coordinates__c };
         try{
-            const resp = await fetch('/api/location/', {
+            const resp = await fetch(`${API_BASE}/api/location/`, {
                 method: 'POST',
                 body: JSON.stringify(form_data_location),
                 headers: {
@@ -174,7 +175,7 @@ const HCPostAddEvent = ({ onCancel,showStatus }) => {
                                         };
                 console.log('Form data Event>'+JSON.stringify(form_data_event));
                 try{
-                    const resp = await fetch('/api/event/', {
+                    const resp = await fetch(`${API_BASE}/api/event/`, {
                         method: 'POST',
                         body: JSON.stringify(form_data_event),
                         headers: {
@@ -209,7 +210,7 @@ const HCPostAddEvent = ({ onCancel,showStatus }) => {
                             await Promise.all(
                                 contentPayloads.map(async (payload) => {
                                     console.log('Form data content>'+JSON.stringify(payload));
-                                    const resp = await fetch('/api/content/', {
+                                    const resp = await fetch(`${API_BASE}/api/content/`, {
                                         method: 'POST',
                                         body: JSON.stringify(payload),
                                         headers: {
@@ -246,7 +247,7 @@ const HCPostAddEvent = ({ onCancel,showStatus }) => {
         e.preventDefault();
         handleRefresh();
         if(formImgData?.images.length > 0){
-            await fetch('api/fileUpload/cleanUp', {
+            await fetch(`${API_BASE}api/fileUpload/cleanUp`, {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

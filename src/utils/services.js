@@ -1,3 +1,5 @@
+import { API_BASE } from "./config";
+
 export const toggleWishlist = async ({
     contactId,
     relatedId,
@@ -5,7 +7,7 @@ export const toggleWishlist = async ({
     relatedType
 }) => {
     const form_data = { contactId,relatedId,relatedCode,relatedType};
-    const resp = await fetch('/api/wishlist/toggle',{
+    const resp = await fetch(`${API_BASE}/api/wishlist/toggle`,{
             method: 'POST',
             body: JSON.stringify(form_data),
             headers: {
@@ -23,7 +25,7 @@ export const checkWishlist = async ({
     relatedType
 }) => {
     const form_data = { contactId,relatedId,relatedType };
-    const resp = await fetch('/api/wishlist/check',{
+    const resp = await fetch(`${API_BASE}/api/wishlist/check`,{
             method: 'GET',
             body: JSON.stringify(form_data),
             headers: {
@@ -46,7 +48,7 @@ export const createWishlist = async ({
     wishlistType = 'Wishlist',
     notes = ''
 }) => {
-    const resp = await fetch('/api/wishlist/', {
+    const resp = await fetch(`${API_BASE}/api/wishlist/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

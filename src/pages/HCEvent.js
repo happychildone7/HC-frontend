@@ -9,6 +9,7 @@ import HCDisplayFeatured from "../common/HCDisplayFeatured.js";
 import HCDisplayAllEntities from "../common/HCDisplayAllEntities.js";
 import HCVerticalFilterBar from "../components/HCVerticalFilterBar.js";
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "../utils/config.js";
 
 const HCEvent = () => {
     const navigate = useNavigate();
@@ -38,7 +39,7 @@ const HCEvent = () => {
 
     const handleChangeLoc = (loc) => {
         const fetchEvents = async () => {
-            const resp = await fetch(`/api/eventContent/fetchFeatured/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
+            const resp = await fetch(`${API_BASE}/api/eventContent/fetchFeatured/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -54,7 +55,7 @@ const HCEvent = () => {
             else{
                 setDisplayFeatured(false);
             }
-            const resp1 = await fetch(`/api/eventContent/fetch/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
+            const resp1 = await fetch(`${API_BASE}/api/eventContent/fetch/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {

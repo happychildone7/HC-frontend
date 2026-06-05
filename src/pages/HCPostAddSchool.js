@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import HCSchoolDetail from "../common/HCSchoolDetail";
 import HCLocationDetail from '../common/HCLocationDetail';
 import HCImageDetail from "../common/HCImageDetail";
+import { API_BASE } from "../utils/config";
 
 const HCPostAddSchool = ({ onCancel,showStatus }) => {
     const [isFormVisible,setIsFormVisible] = useState(true);
@@ -143,7 +144,7 @@ const HCPostAddSchool = ({ onCancel,showStatus }) => {
         setIsDataLoading(true);
         const form_data_location = { line1__c,line2__c,location_Type__c,city__c,state__c,country__c,pin__c,coordinates__c };
         try{
-            const resp = await fetch('/api/location/', {
+            const resp = await fetch(`${API_BASE}/api/location/`, {
                 method: 'POST',
                 body: JSON.stringify(form_data_location),
                 headers: {
@@ -167,7 +168,7 @@ const HCPostAddSchool = ({ onCancel,showStatus }) => {
                                          };
                 console.log('Form data school>'+JSON.stringify(form_data_school));
                 try{
-                    const resp = await fetch('/api/school', {
+                    const resp = await fetch(`${API_BASE}/api/school`, {
                         method: 'POST',
                         body: JSON.stringify(form_data_school),
                         headers: {
@@ -202,7 +203,7 @@ const HCPostAddSchool = ({ onCancel,showStatus }) => {
                             await Promise.all(
                                 contentPayloads.map(async (payload) => {
                                     console.log('Form data content>'+JSON.stringify(payload));
-                                    const resp = await fetch('/api/content/', {
+                                    const resp = await fetch(`${API_BASE}/api/content/`, {
                                         method: 'POST',
                                         body: JSON.stringify(payload),
                                         headers: {
@@ -239,7 +240,7 @@ const HCPostAddSchool = ({ onCancel,showStatus }) => {
         e.preventDefault();
         handleRefresh();
         if(formImgData?.images.length > 0){
-            await fetch('api/fileUpload/cleanUp', {
+            await fetch(`${API_BASE}api/fileUpload/cleanUp`, {
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

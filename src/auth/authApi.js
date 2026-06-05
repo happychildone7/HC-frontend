@@ -1,6 +1,7 @@
+import { API_BASE } from '../utils/config';
 export const loginUser = async (email__c,password__c) => {
     const form_data = { email__c,password__c };
-    const resp = await fetch('/api/auth/login/', {
+    const resp = await fetch(`${API_BASE}/api/auth/login/`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -13,7 +14,7 @@ export const loginUser = async (email__c,password__c) => {
 
 export const loginWithGoogle = async (accessCode) => {
     const form_data = { accessCode };
-    const resp = await fetch('/api/auth/googleLogin', {
+    const resp = await fetch(`${API_BASE}/api/auth/googleLogin`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(form_data),
@@ -26,7 +27,7 @@ export const loginWithGoogle = async (accessCode) => {
 
 export const loginWithFacebook = async (accessToken,userId) => {
     const form_data = { accessToken,userId };
-    const resp = await fetch('/api/auth/facebookLogin', {
+    const resp = await fetch(`${API_BASE}/api/auth/facebookLogin`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(form_data),
@@ -38,7 +39,7 @@ export const loginWithFacebook = async (accessToken,userId) => {
 }
 
 export const logoutUser = async () => {
-    const resp = await fetch('/api/auth/logout', {
+    const resp = await fetch(`${API_BASE}/api/auth/logout`, {
         method: 'POST',
         credentials: 'include',
         headers: {

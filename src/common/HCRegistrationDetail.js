@@ -7,6 +7,7 @@ import '../styles/HCAdminCommon.css';
 import ic_checked from '../images/checked.WebP';
 import ic_unchecked from '../images/unchecked.WebP';
 import HCLookup from "../components/HCLookup";
+import { API_BASE } from "../utils/config";
 
 const HCRegistrationDetail = ({ formData,showStatus,onFieldChange,onArrayChange,errors={},mode='view',onEditClick }) => {
 
@@ -94,7 +95,7 @@ const HCRegistrationDetail = ({ formData,showStatus,onFieldChange,onArrayChange,
                         <HCLookup 
                             placeholder="Enter related contact" 
                             className="formInputBox max-width_90" 
-                            endpoint="/api/contact/search/?query="
+                            endpoint={`${API_BASE}/api/contact/search/?query=`}
                             initialValue={formData.contact_Name__c || ''}
                             onRecordSelect={(record) => {
                                 console.log('Selected record:<>', record);
@@ -111,7 +112,7 @@ const HCRegistrationDetail = ({ formData,showStatus,onFieldChange,onArrayChange,
                         <HCLookup 
                             placeholder="Enter related event" 
                             className="formInputBox max-width_90" 
-                            endpoint="/api/event/search/?query="
+                            endpoint={`${API_BASE}/api/event/search/?query=`}
                             initialValue={formData.event_Name__c || ''}
                             onRecordSelect={(record) => {
                                 console.log('Selected record:<>', record);

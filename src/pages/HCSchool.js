@@ -9,6 +9,7 @@ import HCDisplayFeatured from "../common/HCDisplayFeatured.js";
 import HCDisplayAllEntities from "../common/HCDisplayAllEntities.js";
 import HCVerticalFilterBar from "../components/HCVerticalFilterBar.js";
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "../utils/config.js";
 
 const HCSchool = () => {
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ const HCSchool = () => {
 
     const handleChangeLoc = (loc) => {
         const fetchSchools = async () => {
-            const resp = await fetch(`/api/schoolContent/fetchFeatured/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
+            const resp = await fetch(`${API_BASE}/api/schoolContent/fetchFeatured/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -60,7 +61,7 @@ const HCSchool = () => {
             else{
                 setDisplayFeatured(false);
             }
-            const resp1 = await fetch(`/api/schoolContent/fetch/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
+            const resp1 = await fetch(`${API_BASE}/api/schoolContent/fetch/?country=${selectedCountry}&state=${selectedState}&city=${loc}`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {

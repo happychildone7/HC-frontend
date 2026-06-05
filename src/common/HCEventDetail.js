@@ -7,6 +7,7 @@ import '../styles/HCAdminCommon.css';
 import ic_checked from '../images/checked.WebP';
 import ic_unchecked from '../images/unchecked.WebP';
 import HCLookup from "../components/HCLookup";
+import { API_BASE } from "../utils/config";
 
 const HCEventDetail = ({ formData,showStatus,onFieldChange,onArrayChange,errors={},mode='view',onEditClick }) => {
 
@@ -370,7 +371,7 @@ const HCEventDetail = ({ formData,showStatus,onFieldChange,onArrayChange,errors=
                         <HCLookup 
                             placeholder="Enter related school" 
                             className="formInputBox max-width_90" 
-                            endpoint="/api/school/search/?query="
+                            endpoint={`${API_BASE}/api/school/search/?query=`}
                             initialValue={formData.school_Name__c || ''}
                             onRecordSelect={(record) => {
                                 console.log('Selected record:<>', record);

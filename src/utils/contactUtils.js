@@ -1,9 +1,11 @@
+import { API_BASE } from "./config";
+
 export const getContactById = async (contactId) => {
     if (!contactId) {
         throw new Error('Contact Id is required');
     }
 
-    const response = await fetch(`/api/contact/${contactId}`, {
+    const response = await fetch(`${API_BASE}/api/contact/${contactId}`, {
         method: 'GET'
     });
 

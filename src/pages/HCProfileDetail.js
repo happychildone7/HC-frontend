@@ -18,6 +18,7 @@ import HCFileUpload from "../components/HCFileUpload";
 import HCContactDetail from "../common/HCContactDetail";
 import { toast } from 'react-toastify';
 import { isEmailValid, isPhoneValid } from '../utils/validations.js';
+import { API_BASE } from "../utils/config.js";
 
 const HCProfileDetail = () => {
     const [contact,setContact] = useState(null);
@@ -60,7 +61,7 @@ const HCProfileDetail = () => {
             try {
                 setLoading(true);
 
-                const resp = await fetch(`/api/contact/${user.contactId}`, {
+                const resp = await fetch(`${API_BASE}/api/contact/${user.contactId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
@@ -162,7 +163,7 @@ const HCProfileDetail = () => {
         }
         try{
             setPhotoSaving(true);
-            await fetch('/api/content/deleteByRelated',{
+            await fetch(`${API_BASE}/api/content/deleteByRelated`,{
                 method: 'POST',
                 body: JSON.stringify({
                     relatedToIds : [contact._id]
@@ -189,7 +190,7 @@ const HCProfileDetail = () => {
                 }));
                 await Promise.all(
                     contentPayloads.map(async (payload) => {
-                        const contentResp = await fetch('/api/content/',{
+                        const contentResp = await fetch(`${API_BASE}/api/content/`,{
                             method: 'POST',
                             body: JSON.stringify(payload),
                             headers: {
@@ -265,7 +266,7 @@ const HCProfileDetail = () => {
                                     phone__c,email__c,gender__c,date_Of_Birth__c
                                   };
         try{
-            const conResp = await fetch(`/api/Contact/${contact_Id__c}`,{
+            const conResp = await fetch(`${API_BASE}/api/Contact/${contact_Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data),
                 headers: {

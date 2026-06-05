@@ -4,6 +4,7 @@ import Button from '../components/HCButton';
 import DataTable from '../components/HCDatatable';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminEvent = () => {
     const [events,setEvents] = useState([]);
@@ -59,7 +60,7 @@ const HCAdminEvent = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try{
-                const resp = await fetch('/api/event/', {
+                const resp = await fetch(`${API_BASE}/api/event/`, {
                     method: 'GET'
                 });
                 const data = await resp.json();
@@ -93,7 +94,7 @@ const HCAdminEvent = () => {
         const ids = inactiveRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/event/bulkActivate',{
+            const resp = await fetch(`${API_BASE}/api/event/bulkActivate`,{
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {
@@ -133,7 +134,7 @@ const HCAdminEvent = () => {
         const ids = selectedRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/event/deleteMany', {
+            const resp = await fetch(`${API_BASE}/api/event/deleteMany`, {
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {

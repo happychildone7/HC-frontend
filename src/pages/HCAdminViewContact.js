@@ -11,6 +11,7 @@ import ic_arrowdown from '../images/arrowdown.WebP';
 import { isEmailValid, isPhoneValid } from '../utils/validations.js';
 import HCImageDetail from "../common/HCImageDetail.js";
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config.js";
 
 const HCAdminViewContact = () => {
     const { id } = useParams();
@@ -45,7 +46,7 @@ const HCAdminViewContact = () => {
     useEffect(() => {
         const fetchRecord = async () => {
             try{
-                const resp = await fetch(`/api/contact/${id}`, {
+                const resp = await fetch(`${API_BASE}/api/contact/${id}`, {
                     method: 'GET'
                 });
                 const json = await resp.json();
@@ -171,7 +172,7 @@ const HCAdminViewContact = () => {
                             phone__c,email__c,gender__c,date_Of_Birth__c,active__c
                           };
         try{
-            const conResp = await fetch(`/api/Contact/${contact_Id__c}`,{
+            const conResp = await fetch(`${API_BASE}/api/Contact/${contact_Id__c}`,{
                 method: 'PATCH',
                 body: JSON.stringify(form_data),
                 headers: {
@@ -186,7 +187,7 @@ const HCAdminViewContact = () => {
             }
             console.log('Contact updated',conJson);
             if(imgChanged){
-                await fetch('/api/content/deleteByRelated',{
+                await fetch(`${API_BASE}/api/content/deleteByRelated`,{
                     method: 'POST',
                     body: JSON.stringify({
                         relatedToIds : [contact_Id__c]
@@ -213,7 +214,7 @@ const HCAdminViewContact = () => {
                     }));
                     await Promise.all(
                         contentPayloads.map(async (payload) => {
-                            const contentResp = await fetch('/api/content/',{
+                            const contentResp = await fetch(`${API_BASE}/api/content/`,{
                                 method: 'POST',
                                 body: JSON.stringify(payload),
                                 headers: {

@@ -4,6 +4,7 @@ import Button from '../components/HCButton';
 import DataTable from '../components/HCDatatable';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminRegistration = () => {
     const [registrations,setRegistrations] = useState([]);
@@ -59,7 +60,7 @@ const HCAdminRegistration = () => {
     useEffect(() => {
         const fetchRegistrations = async () => {
             try{
-                const resp = await fetch('/api/registration/', {
+                const resp = await fetch(`${API_BASE}/api/registration/`, {
                     method: 'GET'
                 });
                 const data = await resp.json();
@@ -93,7 +94,7 @@ const HCAdminRegistration = () => {
         const ids = draftRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/registration/bulkActivate',{
+            const resp = await fetch(`${API_BASE}/api/registration/bulkActivate`,{
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {
@@ -133,7 +134,7 @@ const HCAdminRegistration = () => {
         const ids = selectedRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/registration/deleteMany', {
+            const resp = await fetch(`${API_BASE}/api/registration/deleteMany`, {
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {

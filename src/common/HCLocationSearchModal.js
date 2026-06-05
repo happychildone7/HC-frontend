@@ -8,6 +8,7 @@ import ic_delhi from "../images/delhi.WebP";
 import ic_mumbai from "../images/mumbai.WebP";
 import ic_hyderabad from "../images/hyderabad.WebP";
 import ic_bengaluru from "../images/bengaluru.WebP";
+import { API_BASE } from "../utils/config";
 
 const HCLocationSearchModal = ({ showLocModal, onClose, onCitySelect }) => {
     const [viewAll,setViewAll] = useState(false);
@@ -26,7 +27,7 @@ const HCLocationSearchModal = ({ showLocModal, onClose, onCitySelect }) => {
     useEffect(() => {
         const fetchCities = async () => {
             try{
-                const resp = await fetch('/api/city/', {
+                const resp = await fetch(`${API_BASE}/api/city/`, {
                     method: 'GET',
                     headers: {
                         'content-type' : 'application/json'

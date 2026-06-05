@@ -5,6 +5,8 @@ import Button from '../components/HCButton';
 import { useAuth } from "../auth/useAuth";
 import HCSpinner from "../components/HCSpinner";
 import { toast } from "react-toastify";
+import { API_BASE } from "../utils/config";
+
 const Initial_Form = {
         email: '',
         phone: '',
@@ -102,7 +104,7 @@ const HCRSVPModal = ({ showRSVPModal, onClose, event }) => {
             consent__c: consent 
         };
         try{
-            const resp = await fetch('/api/registration/', {
+            const resp = await fetch(`${API_BASE}/api/registration/`, {
                 method: 'POST',
                 body: JSON.stringify(form_data),
                 headers: {

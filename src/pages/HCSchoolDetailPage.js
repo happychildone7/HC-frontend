@@ -18,6 +18,7 @@ import HCClassesSection from "../common/HCClassesSection";
 import HCAmenitiesSection from "../common/HCAmenitiesSection";
 import HCMapPicker from "../components/HCMapPicker";
 import Button from "../components/HCButton";
+import { API_BASE } from "../utils/config";
 
 const HCSchoolDetailPage = () => {
     const { id } = useParams();
@@ -54,7 +55,7 @@ const HCSchoolDetailPage = () => {
         const fetchSchool = async () => {
             try {
                 setLoading(true);
-                const resp = await fetch(`/api/school/${id}`);
+                const resp = await fetch(`${API_BASE}/api/school/${id}`);
                 const data = await resp.json();
                 console.log('dt>>',data);
                 setSchool(data);

@@ -4,6 +4,7 @@ import Button from '../components/HCButton';
 import DataTable from '../components/HCDatatable';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { API_BASE } from "../utils/config";
 
 const HCAdminSchool = () => {
     const [schools,setSchools] = useState([]);
@@ -59,7 +60,7 @@ const HCAdminSchool = () => {
     useEffect(() => {
         const fetchSchools = async () => {
             try{
-                const resp = await fetch('/api/school/', {
+                const resp = await fetch(`${API_BASE}/api/school/`, {
                     method: 'GET'
                 });
                 const data = await resp.json();
@@ -93,7 +94,7 @@ const HCAdminSchool = () => {
         const ids = inactiveRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/school/bulkActivate',{
+            const resp = await fetch(`${API_BASE}/api/school/bulkActivate`,{
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {
@@ -133,7 +134,7 @@ const HCAdminSchool = () => {
         const ids = selectedRows.map(row => row._id);
         try{
             setLoading(true);
-            const resp = await fetch('/api/school/deleteMany', {
+            const resp = await fetch(`${API_BASE}/api/school/deleteMany`, {
                 method: 'POST',
                 body: JSON.stringify({ ids }),
                 headers: {
