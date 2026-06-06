@@ -61,7 +61,7 @@ const HCFooter = () => {
                                 <img src={ic_gps} className="icon_cls_cnt_FT"></img>
                                 <span className="text-label-white">Headquarters: 2031 Cobblefield CIR,<br/> Dacula, GA-30019 USA</span>
                             </a>
-                        </div>
+                        </div> 
                         <div className="cls_ft_sociallinks">
                             <HCSocialLinks/> 
                         </div>
