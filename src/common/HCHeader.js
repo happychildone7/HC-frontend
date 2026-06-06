@@ -86,12 +86,12 @@ const HCHeader = () => {
                         </Link>
                     </div>
                     <div className="cls_nav_link">
-                        <Link to="/hms-facilities" className="myLink">
+                        <Link to="/" className="myLink">
                             <b>Institutes</b>
                         </Link>
                     </div>
                     <div className="cls_nav_link">
-                        <Link to="/hms-facilities" className="myLink">
+                        <Link to="/" className="myLink">
                             <b>Tutors</b>
                         </Link>
                     </div>

@@ -21,16 +21,19 @@ const HCFooter = () => {
                             <a href= "/" className="emailLink text-label-white">
                                 Home
                             </a>
-                            <a href= "/salesforce-solutions" className="emailLink text-label-white">
+                            <a href= "/school" className="emailLink text-label-white">
                                 Schools
                             </a>
-                            <a href= "/salesforce-services" className="emailLink text-label-white">
-                                Institutes
-                            </a>
-                            <a href= "/salesforce-services" className="emailLink text-label-white">
+                            <a href= "/events" className="emailLink text-label-white">
                                 Events
                             </a>
-                            <a href= "/about-us" className="emailLink text-label-white">
+                            <a href= "/" className="emailLink text-label-white">
+                                Institutes
+                            </a>
+                            <a href= "/" className="emailLink text-label-white">
+                                Tutors
+                            </a>
+                            <a href= "/post-add" className="emailLink text-label-white">
                                 Post Ad
                             </a>
                             <a href= "/privacy-policy" className="emailLink text-label-white">
